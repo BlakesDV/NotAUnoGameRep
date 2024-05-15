@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class CardMoves : MonoBehaviour
 {
+    //code recovered from tutotial by M.S. Farzan
+    
     private bool isDrag = false;
+    private bool inDropPanel = false;
+    private GameObject dropPanel;
     private Vector2 startPos;
     
     // Start is called before the first frame update
@@ -21,6 +25,18 @@ public class CardMoves : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        inDropPanel = true;
+        dropPanel = collision.gameObject;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        inDropPanel = false;
+        dropPanel = null;
+    }
+
     public void StartDrag()
     {
         startPos = transform.position;
@@ -30,5 +46,13 @@ public class CardMoves : MonoBehaviour
     public void EndDrag()
     {
         isDrag = false;
+        if(inDropPanel)
+        {
+            transform.SetParent(dropPanel.transform, false);
+        }
+        else
+        {
+            transform.position = startPos;
+        }
     }
 }
