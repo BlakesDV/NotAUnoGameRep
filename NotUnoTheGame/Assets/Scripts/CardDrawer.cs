@@ -21,7 +21,17 @@ public class CardDrawer : MonoBehaviour
         
     }
 
-    public void Player1OnClick()
+    public void StartingDraw()
+    {
+        for (var i = 0; i <  5; i++) {
+            GameObject player1Card = Instantiate(cardFront);
+            player1Card.transform.SetParent(player1Panel.transform, false); 
+            GameObject player2Card = Instantiate(cardFront);
+            player2Card.transform.SetParent(player2Panel.transform, false);
+        }
+    }
+
+    public void Player1DrawOne()
     {
         GameObject player1Card = Instantiate(cardFront);
         player1Card.transform.SetParent(player1Panel.transform, false);
@@ -29,7 +39,7 @@ public class CardDrawer : MonoBehaviour
         // Opcional: Ajustar la posición local dentro del panel si es necesario
         //playerCard.transform.localPosition = Vector3.zero;
     }
-    public void Player2OnClick()
+    public void Player2DrawOne()
     {
         GameObject player2Card = Instantiate(cardFront);
         player2Card.transform.SetParent(player2Panel.transform, false);
