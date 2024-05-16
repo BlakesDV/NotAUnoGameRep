@@ -5,7 +5,9 @@ using UnityEngine;
 public class CardMoves : MonoBehaviour
 {
     //code recovered from tutotial by M.S. Farzan
-    
+
+    private GameManager gameManager;
+
     private bool isDrag = false;
     private bool inDropPanel = false;
     private GameObject dropPanel;
@@ -45,14 +47,18 @@ public class CardMoves : MonoBehaviour
 
     public void EndDrag()
     {
-        isDrag = false;
-        if(inDropPanel)
+        if (isDrag)
         {
-            transform.SetParent(dropPanel.transform, false);
-        }
-        else
-        {
-            transform.position = startPos;
+            isDrag = false;
+            if (inDropPanel)
+            {
+                transform.SetParent(dropPanel.transform, false);
+                gameManager.EndTurn();
+            }
+            else
+            {
+                transform.position = startPos;
+            }
         }
     }
 }
