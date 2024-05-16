@@ -9,6 +9,9 @@ TagManager:
   - Yellow
   - Green
   - Wild
+  - Player1
+  - Player2
+  - DropZone
   layers:
   - Default
   - TransparentFX
