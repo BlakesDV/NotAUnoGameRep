@@ -7,6 +7,7 @@ public class CardDrawer : MonoBehaviour
     public GameObject[] cardPrefabs; // Array of card prefabs
     public GameObject player1Panel;
     public GameObject player2Panel;
+    public GameObject dropPanel;
 
     List<GameObject> cards = new List<GameObject>();
 
@@ -30,6 +31,8 @@ public class CardDrawer : MonoBehaviour
             GameObject player2Card = Instantiate(cards[Random.Range(0, cards.Count)]);
             player2Card.transform.SetParent(player2Panel.transform, false);
         }
+        GameObject dropZoneCard = Instantiate(cards[Random.Range(0, cards.Count)]);
+        dropZoneCard.transform.SetParent(dropPanel.transform, false);
     }
 
     public void Player1DrawOne()

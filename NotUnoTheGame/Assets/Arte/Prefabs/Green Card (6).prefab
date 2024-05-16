@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5944392819543696885}
   m_Layer: 6
   m_Name: Green Card (6)
-  m_TagString: Untagged
+  m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

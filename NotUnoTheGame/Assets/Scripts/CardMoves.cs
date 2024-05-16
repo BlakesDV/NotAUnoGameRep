@@ -61,4 +61,9 @@ public class CardMoves : MonoBehaviour
             }
         }
     }
+
+    public void CheckColor()
+    {
+
+    }
 }
