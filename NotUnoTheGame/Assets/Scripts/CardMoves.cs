@@ -64,6 +64,27 @@ public class CardMoves : MonoBehaviour
 
     public void CheckColor()
     {
+        if (dropPanel != null)
+        {
+            CardMoves cardInDropPanel = dropPanel.GetComponentInChildren<CardMoves>();
 
+            if (cardInDropPanel != null)
+            {
+                if (cardInDropPanel.CompareTag(gameObject.tag))
+                {
+                    Debug.Log("Card dropped in the correct panel!");
+                    EndDrag();
+                }
+                else
+                {
+                    transform.position = startPos;
+                }
+            }
+            else
+            {
+                transform.position = startPos;
+            }
+        }
     }
 }
+
